@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dropbox Link Generator</title>
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Google Drive Link Generator</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
-
-  
+	  
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
       
             <div class="col-md-2">
-                <div class="card p-3 ">
-                    <a href="index.html"><img class="logo" src="assets/img/dropbox-logo.png" alt=""></a>
+                <div class="card  p-3 ">
+                    <a href="index.html"><img class="logo d-flex justify-content-center " src="assets/img/dropbox-logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="card p-3">
+                <div class="card  p-3">
                    <a href="google-drive.html"><img class="logo" href="" src="assets/img/drive-logo.png" alt=""></a> 
                 </div>
             </div>
@@ -35,8 +32,8 @@
     <div class="container mt-5 d-flex justify-content-center ">
         <div class="card w-50 p-2">
             <div class="card-body">
-                <a href="index.html"><img class="card-logo" src="assets/img/dropbox.png" alt=""></a>
-                <h1 class="text-primary heading-text" id="paste">Dropbox Download Link Generator</h1>
+                <a href="google-drive.html"><img class="card-logo" src="assets/img/Google-Drive.png" alt=""></a>
+                <h1 class="text-primary heading-text" id="paste"><span class="text-warning">Google</span> <span class="text-success">Drive</span> Download Link Generator</h1>
                 <form action="" id="formData">
                     <!-- <label for="inputPassword5" class="form-label">Paste your file link</label> -->
                     <input type="text" id="inputLink" class="form-control mt-2" placeholder="Place Your Link">
@@ -58,9 +55,9 @@
     event.preventDefault();
 
     let inputString = document.getElementById("inputLink").value;  
-    var splitString = inputString.substring(23, inputString.length - 5);
+    var splitString = inputString.substring(32, inputString.length - 17);
 
-    let downloadableString = "https://dl.dropboxusercontent.com";
+    let downloadableString = "https://drive.google.com/uc?export=download&id=";
     let showData = downloadableString.concat(splitString);
 
     document.getElementById("copyLink").value = showData;
