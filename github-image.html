@@ -37,25 +37,66 @@
 
 
     <div class="container mt-5 d-flex justify-content-center ">
-        <div class="card p-2">
+        <div class="card w-50 p-2">
             <div class="card-body">
                 <a href="github-image.html"><img class="card-logo" src="assets/img/github.png" alt=""></a>
                 <h1 class="text-dark heading-text" id="paste">Gitub Image Generator</h1>
-                <form action="" id="formData">
+                <form id="formData">
                     <!-- <label for="inputPassword5" class="form-label">Paste your file link</label> -->
                     <input type="text" id="inputLink" class="form-control mt-2" placeholder="Place Your Link">
                     <input type="text" id="copyLink" class="form-control mt-3" placeholder="Copy Your Link">
-                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                        <input type="submit" id="submitBtn" class=" btn btn-outline-primary mt-3" value="Submit">
-                        <input id="copyBtn" class="btn btn-primary mt-3 " value="Copy to Clipboard">
-                    </div>
+                    
+                    
+                    <input type="submit" id="submitBtn" class=" btn btn-outline-primary mt-3" value="Submit">
+                    <input id="copyBtn" class="btn btn-primary mt-3 " value="Copy to Clipboard">
                 </form>
+                <button id="pasteBtn" class="btn btn-warning mt-3">Paste</button>
             </div>
         </div>
     </div>
 
 
-S
+    <script>
+
+
+
+
+        var form = document.getElementById("formData");
+        const pasteBtnGithub = document.getElementById("pasteBtn");
+        
+        pasteBtnGithub.addEventListener('click', () => {
+            document.getElementById("inputLink").value = '';
+            document.getElementById("copyLink").value = '';
+            navigator.clipboard.readText()
+                .then((text) => {
+                    document.getElementById("inputLink").value = text;
+                })
+        })
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            
+            const copyDataGithub = document.getElementById("copyLink");
+            const copyBtnGithub = document.getElementById("copyBtn");
+            const inputStringGithub = document.getElementById("inputLink").value;
+
+            console.log(inputStringGithub)
+            const inputStringGithubCut = inputStringGithub.substring(19);
+            const githubLink = "https://raw.githubusercontent.com/";
+            const newLink = inputStringGithubCut.replace('/blob', '');
+            const outputLink = githubLink + newLink;
+
+            document.getElementById("copyLink").value = outputLink;
+
+            copyBtnGithub.onclick = function () {
+                copyDataGithub.select();
+                document.execCommand("Copy");
+            }
+
+
+        });
+    </script>
 </body>
 
 </html>

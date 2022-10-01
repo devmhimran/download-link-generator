@@ -62,11 +62,11 @@
   form.addEventListener('submit',function(event){
     event.preventDefault();
 
-    let inputString = document.getElementById("inputLink").value;  
-    var splitString = inputString.substring(23, inputString.length - 5);
+    let inputStringDropBox = document.getElementById("inputLink").value;  
+    var splitStringDropBox = inputStringDropBox.substring(23, inputStringDropBox.length - 5);
 
     let downloadableString = "https://dl.dropboxusercontent.com";
-    let showData = downloadableString.concat(splitString);
+    let showData = downloadableString.concat(splitStringDropBox);
 
     document.getElementById("copyLink").value = showData;
 

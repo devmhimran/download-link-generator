@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Google Drive Link Generator</title>
-	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Link Generator</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
+
 <body>
-	  
-<div class="container mt-5">
-    <div class="row d-flex justify-content-center">
 
-        <div class="col-md-2">
-            <div class="card p-3 ">
-                <a href="index.html"><img class="logo" src="assets/img/dropbox-logo.png" alt=""></a>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card p-3">
-                <a href="google-drive.html"><img class="logo" href="" src="assets/img/drive-logo.png" alt=""></a>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card p-3">
-                <a href="github-image.html"><img class="logo" href="" src="assets/img/github-image.png" alt=""></a>
-            </div>
-        </div>
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
 
+            <div class="col-md-2">
+                <div class="card p-3 ">
+                    <a href="index.html"><img class="logo" src="assets/img/dropbox-logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card p-3">
+                    <a href="google-drive.html"><img class="logo" href="" src="assets/img/drive-logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card p-3">
+                    <a href="github-image.html"><img class="logo" href="" src="assets/img/github-image.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 
 
-    
+
 
     <div class="container mt-5 d-flex justify-content-center ">
         <div class="card p-2">
             <div class="card-body">
                 <a href="google-drive.html"><img class="card-logo" src="assets/img/Google-Drive.png" alt=""></a>
-                <h1 class="text-primary heading-text" id="paste"><span class="text-warning">Google</span> <span class="text-success">Drive</span> Download Link Generator</h1>
+                <h1 class="text-primary heading-text" id="paste"><span class="text-warning">Google</span> <span
+                        class="text-success">Drive</span> Download Link Generator</h1>
                 <form action="" id="formData">
                     <!-- <label for="inputPassword5" class="form-label">Paste your file link</label> -->
                     <input type="text" id="inputLink" class="form-control mt-2" placeholder="Place Your Link">
                     <input type="text" id="copyLink" class="form-control mt-3" placeholder="Copy Your Link">
                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                         <input type="submit" id="submitBtn" class=" btn btn-outline-primary mt-3" value="Submit">
-                        <input  id="copyBtn" class="btn btn-primary mt-3 " value="Copy to Clipboard">
+                        <input id="copyBtnGoogleDrive" class="btn btn-primary mt-3 " value="Copy to Clipboard">
                     </div>
                 </form>
             </div>
@@ -54,37 +57,37 @@
 
 
 
-<script>
-  var form = document.getElementById("formData");
-  form.addEventListener('submit',function(event){
-    event.preventDefault();
-
-    let inputString = document.getElementById("inputLink").value;  
-    var splitString = inputString.substring(32, inputString.length - 17);
-
-    let downloadableString = "https://drive.google.com/uc?export=download&id=";
-    let showData = downloadableString.concat(splitString);
-
-    document.getElementById("copyLink").value = showData;
-
-    const copyData = document.getElementById("copyLink");
-    const copyBtn  = document.getElementById("copyBtn");
+    <script>
 
 
-    copyBtn.onclick = function(){
-      copyData.select();
-      document.execCommand("Copy");
-    }
+        var form = document.getElementById("formData");
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let inputStringGoogleDrive = document.getElementById("inputLink").value;
+            var splitStringGoogleDrive = inputStringGoogleDrive.substring(32, inputStringGoogleDrive.length - 17);
+
+            let downloadableStringGoogleDrive = "https://drive.google.com/uc?export=download&id=";
+            let showDataGoogleDrive = downloadableStringGoogleDrive.concat(splitStringGoogleDrive);
+
+            document.getElementById("copyLink").value = showDataGoogleDrive;
+
+            const copyDataGoogleDrive = document.getElementById("copyLink");
+            const copyBtnGoogleDrive = document.getElementById("copyBtnGoogleDrive");
+
+
+            copyBtnGoogleDrive.onclick = function () {
+                copyDataGoogleDrive.select();
+                document.execCommand("Copy");
+            }
+
+        });
 
 
 
 
 
-  });
-
-      
-
-
-</script>
+    </script>
 </body>
+
 </html>
